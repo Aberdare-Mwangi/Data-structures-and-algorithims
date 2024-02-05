@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+// Function to check if the array contains any duplicates
+int contains_duplicates(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (arr[i] == arr[j]) {
+                // Duplicate found
+                return 1;
+            }
+        }
+    }
+    // No duplicates found
+    return 0;
+}
+
+int main() {
+    // Example arrays
+    int arr_with_duplicates[] = {1, 2, 3, 1, 4, 5};
+    int arr_without_duplicates[] = {6, 7, 8, 9, 10};
+
+    // Size of arrays
+    int size_with_duplicates = sizeof(arr_with_duplicates) / sizeof(arr_with_duplicates[0]);
+    int size_without_duplicates = sizeof(arr_without_duplicates) / sizeof(arr_without_duplicates[0]);
+
+    // Check for duplicates
+    int result_with_duplicates = contains_duplicates(arr_with_duplicates, size_with_duplicates);
+    int result_without_duplicates = contains_duplicates(arr_without_duplicates, size_without_duplicates);
+
+    // Display results
+    printf("Array with duplicates: %s\n", result_with_duplicates ? "True" : "False");
+    printf("Array without duplicates: %s\n", result_without_duplicates ? "True" : "False");
+
+    return 0;
+}
